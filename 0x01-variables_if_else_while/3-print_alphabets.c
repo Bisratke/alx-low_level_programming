@@ -1,20 +1,22 @@
 #include <stdio.h>
 /**
-* main - Prints a random number and states whether
-* it is positive, negative, or zero.
-* Return: Always 0.
+* main - main block
+* Description: Use `putchar` to print lowercase and then uppercase alphabet.
+* Return: 0
 */
-int main(void);
-while (z <= 'z')
+int main(void)
 {
-putchar(z);
-z++;
+char c = 'a';
+while (c <= 'z')
+{
+putchar(c);
+c++;
 }
-z = 'A';
-while (z <= 'Z')
+c = 'A';
+while (c <= 'Z')
 {
-putchar(z);
-z++;
+putchar(c);
+c++;
 }
 putchar('\n');
 return (0);
