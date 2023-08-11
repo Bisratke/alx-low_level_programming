@@ -1,8 +1,10 @@
 #include <stdio.h>
-/*main :print alphabets in small case*/
-int main(void)
-{
-char z = 'a';
+/**
+* main - Prints a random number and states whether
+* it is positive, negative, or zero.
+* Return: Always 0.
+*/
+int main(void);
 while (z <= 'z')
 {
 putchar(z);
