@@ -6,20 +6,18 @@
  *
  * Return: address of s
  */
-char *leet(char *s)
+char *leet(char *str)
 {
-int i;
-int j = 0;
-char a[] = "aAeEoOtTlL";
-char b[] = "4433007711";
-for (i = 0; *(s + i); i++)
+int indx1 = 0, indx2;
+char leet[8] = {'O', 'L', '?', 'E', 'A', '?', '?', 'T'};
+for (indx1 = 0; str[indx1]; indx1++ )
 {
-while (j <= 9)
+for (indx2 = 0; indx2 <= 7; indx2++)
 {
-if (a[j] == *(s + i))
-*(s + i) = b[j];
-i++;
+if (str[indx1] == leet[indx2] ||
+str[indx1] - 32 == leet[indx2])
+str[indx1] = indx2 + '0';
 }
 }
-return (s);
+return (str);
 }
