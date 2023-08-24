@@ -2,7 +2,7 @@
 /**
  * main : array value cha
  * Description :  the program prints a[2] = 98
- * Return: Always *s when Success
+ * Return: Always s when Success
  */
 int main(void)
 {
