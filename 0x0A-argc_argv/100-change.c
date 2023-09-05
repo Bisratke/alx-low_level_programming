@@ -1,49 +1,39 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
-
 /**
- * main - print the min number of coins to make change for an amount of money
- * @argc: argument count
- * @argv: argument vector, array of strings
- * Return: 1 if error, 0 otherwise
+ * main - prints the minimum number of coins to make change for an amount.
+ * of money.
+ * @argc: number of command line arguments.
+ * @argv: array that contains the program command line arguments.
+ * Return: 0 - success.
  */
-
 int main(int argc, char *argv[])
 {
-int total, count;
-unsigned int i = 0;
-char *p;
-int cents[] = {25, 10, 5, 2};
-if (argc != 2)
+int c, nc = 0;
+
+if (argc == 1 || argc > 2)
 {
 printf("Error\n");
 return (1);
 }
-total = strtol(argv[1], &p, 10);
-count = 0;
-if (!*p)
+
+c = atoi(argv[1]);
+
+while (c > 0)
 {
-while (total > 1)
-{
-while (i < sizeof(cents[i]))
-{
-if (total >= cents[i])
-{
-count += total / cents[i];
-total = total % cents[i];
+if (c >= 25)
+c -= 25;
+else if (c >= 10)
+c -= 10;
+else if (c >= 5)
+c -= 5;
+else if (c >= 2)
+c -= 2;
+else if (c >= 1)
+c -= 1;
+nc += 1;
 }
-}
-i++;
-}
-if (total == 1)
-count++;
-}
-else
-{
-printf("Error\n");
-return (1);
-}
-printf("%d\n", count);
+printf("%d\n", nc);
 return (0);
 }
