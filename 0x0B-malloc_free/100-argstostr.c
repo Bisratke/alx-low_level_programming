@@ -1,41 +1,47 @@
 #include "main.h"
 #include <stdlib.h>
-#include <stdio.h>
-/**
- * argstostr - concatenate all arguments of your program with newline
- * @ac: argument count
- * @av: double pointer to array of strings passed to main
- * Return: Null if fail, else return pointer to new string
- */
 
+/**
+ * argstostr - concatenates all the arguments of a program.
+ * @ac: argument count.
+ * @av: argument vector.
+ *
+ * Return: pointer of an array of char
+ */
 char *argstostr(int ac, char **av)
 {
-char *a, *retp;
-int i = 0, j = 0, total;
-if (ac == 0 || av == NULL)
+char *aout;
+int c, i = 0, j, ia;
+if (ac == 0)
 return (NULL);
-for (i = 0, total = 0; i < ac; i++)
-{
-for (j = 0; *(*(av + i) + j) != '\0'; j++, total++)
-;
-total++;
-}
-total++;
-a = malloc(total *sizeof(char));
-if (a == NULL)
-return (NULL);
-retp = a;
+c = i;
 while (i < ac)
 {
-while (av[i][j] != '\0')
-{
-*a = av[i][j];
-a++;
-j++;
-}
-*a = '\n';
-a++;
+if (av[i] == NULL)
+return (NULL);
+for (j = 0; av[i][j] != '\0'; j++)
+c++;
+c++;
 i++;
 }
-return (retp);
+a = malloc((c + 1) * sizeof(char));
+if (a == NULL)
+{
+free(a);
+return (NULL);
+}
+for (i = j = ia = 0; ia < c; j++, ia++)
+{
+if (av[i][j] == '\0')
+{
+a[ia] = '\n';
+i++;
+ia++;
+j = 0;
+}
+if (ia < c - 1)
+a[ia] = av[i][j];
+}
+a[ia] = '\0';
+return (a);
 }
