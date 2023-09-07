@@ -216,7 +216,7 @@ digit = get_digit(*(argv[2] + index));
 get_prod(next_prod, argv[1], digit, zeroes++);
 add_nums(final_prod, next_prod, size - 1);
 }
-index = 0; 
+index = 0;
 
 while (final_prod[index])
 {
