@@ -1,4 +1,6 @@
 #include "main.h"
+#include <stdlib.h>
+#include <stdio.h>
 
 int find_len(char *str);
 char *create_xarray(int size);
@@ -217,7 +219,6 @@ get_prod(next_prod, argv[1], digit, zeroes++);
 add_nums(final_prod, next_prod, size - 1);
 }
 index = 0;
-
 while (final_prod[index])
 {
 if (final_prod[index] != 'x')
