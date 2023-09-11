@@ -40,7 +40,7 @@ while (src[len] != '\0')
 {
 len++;
 }
-i = 0; 
+i = 0;
 while (i < len)
 {
 dest[i] = src[i];
