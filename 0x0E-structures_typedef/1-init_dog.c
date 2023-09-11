@@ -9,7 +9,7 @@
  * @owner: string for owners name
  */
 void init_dog(struct dog *d, char *name, float age, char *owner)
-{i
+{
 if (d == NULL)
 d = malloc(sizeof(struct dog));
 d->name = name;
