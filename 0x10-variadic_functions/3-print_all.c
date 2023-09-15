@@ -25,7 +25,7 @@ va_start(args, format);
 
 while (format != NULL && format[i])
 {
-for (j = 0; j < 4 j++)
+for (j = 0; j < 4; j++)
 {
 if (format[i] == *form_types[j].identifier)
 {
