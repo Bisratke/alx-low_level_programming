@@ -1,13 +1,15 @@
+section .data
+hello:	db "Hello, Holberton",10,0
+format:	db "%s",0
 section .text
 global main
+extern printf
 main:
-mov	edx, len
-mov	ecx, msg	;message variable
-mov 	ebx, 1		;write to standard output
-mov	eax, 4
-int	0x80		;call kernel
-mov	eax, 1 		;system call (sys_exit)
-int	0x80		;call kernel
-section .data
-msg db 'Hello, Holberton', 0xa	;message to print
-len equ $ - msg			;length of the string
+push rbp
+mov rbp, rsp
+mov rsi, hello
+mov rdi, format
+call printf
+pop rbp
+mov rax, 0
+ret
