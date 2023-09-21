@@ -7,13 +7,11 @@
  */
 size_t list_len(const list_t *h)
 {
-const list_t *current;
-size_t c;
-c = 0;
-current = h;
-do {
-current = current->next;
-c++;
-} while (current != NULL);
-return (c);
+unsigned int count = 0;
+while (h)
+{
+h = h->next;
+count++;
+}
+return (count);
 }
