@@ -23,7 +23,7 @@ return;
 flag = 0;
 while (size >= 0)
 {
-c = (n >> size) & 1;
+c = (n >> size) &1;
 if (flag == 1)
 putchar(c + '0');
 else
