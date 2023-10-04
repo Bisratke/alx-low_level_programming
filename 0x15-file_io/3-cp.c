@@ -13,7 +13,7 @@
  */
 int _close(int fd)
 {
-if (close(fd) == NULL)
+if (close(fd) == '\0')
 return (0);
 dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
 return (-1);
