@@ -32,7 +32,7 @@ int check_valid_string(const char *b)
 {
 if (b == NULL)
 return (0);
-while (*b != NULL)
+while (*b)
 {
 if (*b != '1' && *b != '0')
 return (0);
