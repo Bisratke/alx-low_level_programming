@@ -20,7 +20,7 @@ fd_to = open(av[2], O_CREAT | O_WRONLY | O_TRUNC, perm);
 if (fd_to == -1)
 dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]), exit(99);
 rd_stat = 1;
-while (rd_stat)
+while (rd_stat != NULL)
 {
 rd_stat = read(fd_from, buffer, BUFSIZE);
 if (rd_stat == -1)
