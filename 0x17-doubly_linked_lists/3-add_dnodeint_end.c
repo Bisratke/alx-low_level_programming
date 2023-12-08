@@ -1,50 +1,33 @@
 #include "lists.h"
 
 /**
- * add_dnodeint_end - function that adds node at the end of a list.
- * @head: pointer to pointer to head of list.
- * @n: data to be added.
- *
- * Return: address of the new element or NULL if it failed.
- */
-
+ * add_dnodeint_end - adds a new node at the end of a dlistint_t list.
+ * @head: pointer to the first element of the list.
+ * @n: int to set in the new node.
+ * Return: address of the new element, or NULL if it failed
+ **/
 dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 {
-	dlistint_t *new_node, *last;
+	dlistint_t *new, *aux = *head;
 
-	/* allocate memory for new node */
-	new_node = malloc(sizeof(dlistint_t));
-
-	/* if it fails return NULL */
-	if (!new_node)
+	new = malloc(sizeof(dlistint_t));
+	if (new == NULL)
 		return (NULL);
+	new->n = n;
+	new->next = NULL;
 
-	/* assign data to new node */
-	new_node->n = n;
-
-	/**
-	 * the new node is going to be the last node so make next,
-	 * of it as NULL
-	 */
-	new_node->next = NULL;
-
-	last = *head;
-
-	/* if there is no head/list make new node as head node */
-	if (*head)
+	if (aux)
 	{
-		new_node->next = *head;
-		*head = new_node;
+		while (aux->next != NULL)
+			aux = aux->next;
+		new->prev = aux;
+		aux->next = new;
 	}
 	else
 	{
-		/* traverse till last node */
-		while (last->next)
-			last = last->next;
-		/* change the next of last node */
-		last->next = new_node;
+		*head = new;
+		new->prev = NULL;
 	}
-	new_node->prev = last;
 
-	return (new_node);
+	return (new);
 }
