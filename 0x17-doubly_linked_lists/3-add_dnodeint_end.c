@@ -39,7 +39,7 @@ dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 	else
 	{
 		/* traverse till last node */
-		while (last->next != NULL)
+		while (last->next)
 			last = last->next;
 		/* change the next of last node */
 		last->next = new_node;
